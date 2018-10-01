@@ -1,11 +1,5 @@
 import React from "react";
 import { render } from "react-dom";
-import Pets from "./components/Pets";
+import Layout from "./components/Layout";
 
-class App extends React.Component {
-  render() {
-    return <Pets />;
-  }
-}
-
-render(React.createElement(App), document.getElementById("root"));
+render(React.createElement(Layout), document.getElementById("root"));
