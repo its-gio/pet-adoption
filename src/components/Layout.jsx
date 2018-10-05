@@ -1,6 +1,6 @@
 import React from "react";
 import pf from "petfinder-client";
-import Pet from "./Pet";
+import Pet from "./Pet.jsx";
 
 const petfinder = pf({
   key: process.env.API_KEY,
@@ -60,6 +60,8 @@ export default class App extends React.Component {
                 animal={pet.animal}
                 name={pet.name}
                 breed={breed}
+                media={pet.media}
+                location={`${pet.contact.city}, ${pet.contact.state}`}
               />
             );
           })}
