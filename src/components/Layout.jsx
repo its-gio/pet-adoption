@@ -1,6 +1,6 @@
 import React from "react";
 import pf from "petfinder-client";
-import Pets from "./Pets.jsx";
+import Pet from "./Pet";
 
 const petfinder = pf({
   key: process.env.API_KEY,
@@ -23,6 +23,7 @@ export default class App extends React.Component {
 
         // Checking if these exist
         if (data.petfinder.pets && data.petfinder.pets.pet) {
+          // Making sure that the data will always be an array (Even if an empty array)
           if (Array.isArray(data.petfinder.pets.pet)) {
             pets = data.petfinder.pets.pet;
           } else {
@@ -40,9 +41,20 @@ export default class App extends React.Component {
     return (
       <div>
         <h1>Adopt Me!</h1>
-        <Pets name="Milk" animal="Dog" breed="Chiwawa" />
-        <Pets name="Cookie" animal="Dog" breed="Pit Bull" />
-        <Pets name="Boike" animal="Cat" breed="Mixed" />
+        <div>
+          {this.state.pets.map(pet => {
+            let breed;
+
+            // Checking and joining if there is only one breed
+            if (Array.isArray(pet.breeds.breed)) {
+              breed = pet.breeds.breed.join(", ");
+            } else {
+              breed = pet.breeds.breed;
+            }
+
+            return <Pet animal={pet.animal} name={pet.name} breed={breed} />;
+          })}
+        </div>
       </div>
     );
   }

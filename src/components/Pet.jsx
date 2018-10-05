@@ -1,6 +1,6 @@
 import React from "react";
 
-const Pets = props => {
+const Pet = props => {
   return (
     <div>
       <h2>{props.name}</h2>
@@ -10,4 +10,4 @@ const Pets = props => {
   );
 };
 
-export default Pets;
+export default Pet;
