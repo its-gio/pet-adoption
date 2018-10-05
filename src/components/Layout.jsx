@@ -34,6 +34,8 @@ export default class App extends React.Component {
         }
 
         this.setState({ pets });
+        // Example of 2 pet objects
+        // console.log(this.state.pets.slice(1, 3));
       });
   }
 
