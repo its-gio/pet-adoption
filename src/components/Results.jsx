@@ -60,6 +60,7 @@ export default class Results extends React.Component {
               breed={breed}
               media={pet.media}
               location={`${pet.contact.city}, ${pet.contact.state}`}
+              id={pet.id}
             />
           );
         })}
