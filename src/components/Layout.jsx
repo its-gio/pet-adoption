@@ -7,9 +7,9 @@ export default class Layout extends React.Component {
   render() {
     return (
       <div>
-        <Link to="/">
-          <h1>Adopt Me!</h1>
-        </Link>
+        <header>
+          <Link to="/">Adopt Me!</Link>
+        </header>
         <Router>
           <Results path="/" />
           <Details path="/details/:id" />
