@@ -15,6 +15,7 @@ export default class Results extends React.Component {
       pets: []
     };
   }
+
   componentDidMount() {
     petfinder.pet
       .find({ output: "full", location: "Los Angeles, CA" })
@@ -35,14 +36,16 @@ export default class Results extends React.Component {
 
         this.setState({ pets });
         // Example of 2 pet objects
-        // console.log(this.state.pets.slice(1, 3));
+        // console.log(this.state.pets.slice(0, 3));
       });
   }
 
   render() {
+    const petsCount = this.state.pets.length - 1;
+
     return (
       <div className="search">
-        {this.state.pets.map(pet => {
+        {this.state.pets.map((pet, i) => {
           let breed;
 
           // Checking and joining if there is only one breed
@@ -53,15 +56,17 @@ export default class Results extends React.Component {
           }
 
           return (
-            <Pet
-              key={pet.id}
-              animal={pet.animal}
-              name={pet.name}
-              breed={breed}
-              media={pet.media}
-              location={`${pet.contact.city}, ${pet.contact.state}`}
-              id={pet.id}
-            />
+            <React.Fragment key={pet.id}>
+              <Pet
+                animal={pet.animal}
+                name={pet.name}
+                breed={breed}
+                media={pet.media}
+                location={`${pet.contact.city}, ${pet.contact.state}`}
+                id={pet.id}
+              />
+              {petsCount != i ? <hr /> : ""}
+            </React.Fragment>
           );
         })}
       </div>
