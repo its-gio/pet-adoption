@@ -33,6 +33,15 @@ export default class SearchParams extends React.Component {
     this.setState({ breed: e.target.value });
   };
 
+  capIt(name) {
+    let normName = name
+      .toLowerCase()
+      .split(" ")
+      .map(name => name.charAt(0).toUpperCase() + name.slice(1))
+      .join(" ");
+    return normName;
+  }
+
   getBreeds() {
     if (this.state.animal) {
       // Listing the breeds of the selected animal (in state)
@@ -77,7 +86,7 @@ export default class SearchParams extends React.Component {
             <option />
             {ANIMALS.map(animal => (
               <option key={animal} value={animal}>
-                {animal}
+                {this.capIt(animal)}
               </option>
             ))}
           </select>
