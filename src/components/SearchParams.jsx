@@ -1,11 +1,16 @@
 import React from "react";
-import { ANIMALS } from "petfinder-client";
+import pf, { ANIMALS } from "petfinder-client";
+
+const petfinder = pf({
+  key: process.env.API_KEY,
+  secret: process.env.API_SECRET
+});
 
 export default class SearchParams extends React.Component {
   state = {
     location: "",
     animal: "",
-    breed: ""
+    breeds: []
   };
 
   handleLocationChange = e => {
@@ -13,8 +18,36 @@ export default class SearchParams extends React.Component {
   };
 
   handleAnimalChange = e => {
-    this.setState({ animal: e.target.value });
+    this.setState(
+      {
+        animal: e.target.value,
+        breeds: []
+      },
+      // Calling getBreeds function when this state is changed and rerendered
+      this.getBreeds
+    );
   };
+
+  getBreeds() {
+    if (this.state.animal) {
+      // Listing the breeds of the selected animal (in state)
+      petfinder.breed.list({ animal: this.state.animal }).then(data => {
+        if (
+          data.petfinder &&
+          data.petfinder.breeds &&
+          Array.isArray(data.petfinder.breeds.breed)
+        ) {
+          this.setState({ breeds: data.petfinder.breeds.breed });
+        } else {
+          // Empty array if there are no animals selected
+          this.setState({ breeds: [] });
+        }
+      });
+    } else {
+      // Empty array if there are no animals selected
+      this.setState({ breeds: [] });
+    }
+  }
 
   render() {
     return (
