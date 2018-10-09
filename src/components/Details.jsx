@@ -51,12 +51,17 @@ export default class Details extends React.Component {
     }
 
     const { name, animal, breed, location, description, media } = this.state;
+    let normName = name
+      .toLowerCase()
+      .split(" ")
+      .map(name => name.charAt(0).toUpperCase() + name.slice(1))
+      .join(" ");
 
     return (
       <div className="details">
         <Carousel media={media} />
         <div>
-          <h1>{name}</h1>
+          <h1>{normName}</h1>
           <h2>
             {animal} - {breed} - {location}
           </h2>
