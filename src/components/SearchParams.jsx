@@ -83,7 +83,7 @@ export default class SearchParams extends React.Component {
             onChange={this.handleAnimalChange}
             onBlur={this.handleAnimalChange}
           >
-            <option />
+            <option value="">All Animals</option>
             {ANIMALS.map(animal => (
               <option key={animal} value={animal}>
                 {this.capIt(animal)}
