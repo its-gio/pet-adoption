@@ -8,8 +8,9 @@ const petfinder = pf({
 
 export default class SearchParams extends React.Component {
   state = {
-    location: "",
+    location: "Los Angeles, CA",
     animal: "",
+    breed: "",
     breeds: []
   };
 
@@ -21,11 +22,15 @@ export default class SearchParams extends React.Component {
     this.setState(
       {
         animal: e.target.value,
-        breeds: []
+        breed: ""
       },
       // Calling getBreeds function when this state is changed and rerendered
       this.getBreeds
     );
+  };
+
+  handleBreedChange = e => {
+    this.setState({ breed: e.target.value });
   };
 
   getBreeds() {
@@ -67,7 +72,7 @@ export default class SearchParams extends React.Component {
             id="animal"
             value={this.state.animal}
             onChange={this.handleAnimalChange}
-            onBlur={this.state.animal}
+            onBlur={this.handleAnimalChange}
           >
             <option />
             {ANIMALS.map(animal => (
@@ -77,6 +82,24 @@ export default class SearchParams extends React.Component {
             ))}
           </select>
         </label>
+        <label htmlFor="breed">
+          Breed
+          <select
+            id="breed"
+            value={this.state.breed}
+            onChange={this.handleBreedChange}
+            onBlur={this.handleBreedChange}
+            disabled={this.state.breeds.length === 0}
+          >
+            <option />
+            {this.state.breeds.map(breed => (
+              <option key={breed} value={breed}>
+                {breed}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button>Submit</button>
       </div>
     );
   }
