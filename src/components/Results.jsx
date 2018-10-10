@@ -59,6 +59,11 @@ class Results extends React.Component {
         <SearchBox search={this.search} />
         {this.state.pets.map((pet, i) => {
           let breed;
+          const normName = pet.name
+            .toLowerCase()
+            .split(" ")
+            .map(name => name.charAt(0).toUpperCase() + name.slice(1))
+            .join(" ");
 
           // Checking and joining if there is only one breed
           if (Array.isArray(pet.breeds.breed)) {
@@ -71,7 +76,7 @@ class Results extends React.Component {
             <React.Fragment key={pet.id}>
               <Pet
                 animal={pet.animal}
-                name={pet.name}
+                name={normName}
                 breed={breed}
                 media={pet.media}
                 location={`${pet.contact.city}, ${pet.contact.state}`}
