@@ -1,5 +1,6 @@
 import React from "react";
 import pf from "petfinder-client";
+import { Consumer } from "./SearchContext.jsx";
 import Pet from "./Pet.jsx";
 import SearchBox from "./SearchBox.jsx";
 
@@ -8,7 +9,7 @@ const petfinder = pf({
   secret: process.env.API_SECRET
 });
 
-export default class Results extends React.Component {
+class Results extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,8 +19,17 @@ export default class Results extends React.Component {
   }
 
   componentDidMount() {
+    this.search();
+  }
+
+  search = () => {
     petfinder.pet
-      .find({ output: "full", location: "Los Angeles, CA" })
+      .find({
+        output: "full",
+        location: this.props.searchParams.location,
+        animal: this.props.searchParams.animal,
+        breed: this.props.searchParams.breed
+      })
       .then(data => {
         let pets;
 
@@ -39,14 +49,14 @@ export default class Results extends React.Component {
         // Example of 2 pet objects
         // console.log(this.state.pets.slice(0, 3));
       });
-  }
+  };
 
   render() {
     const petsCount = this.state.pets.length - 1;
 
     return (
       <div className="search">
-        <SearchBox />
+        <SearchBox search={this.search} />
         {this.state.pets.map((pet, i) => {
           let breed;
 
@@ -74,4 +84,13 @@ export default class Results extends React.Component {
       </div>
     );
   }
+}
+
+// If context is being used in lifecycle methods this must be done
+export default function ResultsWithContext(props) {
+  return (
+    <Consumer>
+      {context => <Results {...props} searchParams={context} />}
+    </Consumer>
+  );
 }
