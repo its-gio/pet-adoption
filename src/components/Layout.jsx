@@ -72,6 +72,7 @@ export default class Layout extends React.Component {
       <div>
         <header>
           <Link to="/">Adopt Me!</Link>
+          <Link to="/search-params">Search Page</Link>
         </header>
         <Provider value={this.state}>
           <Router>
