@@ -15,7 +15,7 @@ export default class Modal extends React.Component {
   }
 
   // Created to clear memory leaks
-  componentWillUnMount() {
+  componentWillUnmount() {
     modalRoot.removeChild(this.el);
   }
 

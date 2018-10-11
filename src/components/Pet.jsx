@@ -12,7 +12,7 @@ export default class Pet extends React.Component {
       photos = media.photos.photo.filter(photo => photo["@size"] === "pn");
     }
 
-    const hero = photos[0] ? photos[0].value : "../imgs/pet-placeholder.png";
+    const hero = photos[0] ? photos[0].value : "/src/imgs/pet-placeholder.png";
 
     return (
       <Link to={`/details/${id}`} className="pet">
