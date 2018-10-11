@@ -12,7 +12,7 @@ const petfinder = pf({
 export default class Details extends React.Component {
   state = {
     loading: true,
-    showModal: true
+    showModal: false
   };
 
   // If showModal = true change to false, Vise Versa
