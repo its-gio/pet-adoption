@@ -16,7 +16,7 @@ export default class Layout extends React.Component {
     super(props);
 
     this.state = {
-      location: "Los Angeles, CA",
+      location: "",
       animal: "",
       breed: "",
       breeds: [],
