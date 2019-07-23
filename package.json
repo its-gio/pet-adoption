@@ -1,0 +1,26 @@
+{
+  "name": "pet-adoption",
+  "version": "1.0.0",
+  "description": "A Front-end Masters course on React.js v5",
+  "main": "app.js",
+  "scripts": {
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "format": "prettier \"src/**/*.{js,jsx,html}\" --write",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/its-gio/pet-adoption.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/its-gio/pet-adoption/issues"
+  },
+  "homepage": "https://github.com/its-gio/pet-adoption#readme",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "prettier": "^1.18.2"
+  }
+}
