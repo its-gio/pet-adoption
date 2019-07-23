@@ -1,3 +1,3 @@
 # pet-adoption
 
-A Front-end Masters course on React.js
+A Front-end Masters course on React.js v5
