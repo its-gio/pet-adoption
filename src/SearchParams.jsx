@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { ANIMALS } from "@frontendmasters/pet";
+import { useDropdown } from "./useDropdown.jsx";
 
 export default function SearchParams() {
-  const location = "San Francisco, CA";
+  const [location, setLocation] = useState("San Francisco, CA");
+  const [breeds, setBreeds] = useState([]);
+  const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+  const [breed, BreedDropdown] = useDropdown("Breed", "", breeds);
 
   return (
     <div>
@@ -13,8 +18,14 @@ export default function SearchParams() {
             value={location}
             placeholder="Location"
             type="text"
+            onChange={e => setLocation(e.target.value)}
           />
         </label>
+
+        <AnimalDropdown />
+
+        <BreedDropdown />
+
         <button>Submit</button>
       </form>
     </div>
