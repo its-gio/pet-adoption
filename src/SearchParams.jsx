@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ANIMALS } from "@frontendmasters/pet";
-import { useDropdown } from "./useDropdown.jsx";
+import useDropdown from "./useDropdown.jsx";
 
 export default function SearchParams() {
   const [location, setLocation] = useState("San Francisco, CA");
