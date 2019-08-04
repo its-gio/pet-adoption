@@ -5,9 +5,10 @@ export default function useDropdown(label, defaultState, options) {
   const id = `use-dropdown-${label.replace(" ", "-").toLowerCase()}`;
   const Dropdown = () => (
     <label htmlFor={id}>
-      <span className="form-title-text">{label}</span>
+      <span className="form-title-text">{label}:</span>
       <select
         id={id}
+        className="form-field"
         value={state}
         onChange={e => setState(e.target.value)}
         onBlur={e => setState(e.target.value)}

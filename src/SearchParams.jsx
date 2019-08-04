@@ -12,9 +12,10 @@ export default function SearchParams() {
     <div>
       <form>
         <label htmlFor="location">
-          <span className="form-title-text">Location</span>
+          <span className="form-title-text">Location:</span>
           <input
             id="location"
+            className="form-field"
             value={location}
             placeholder="Location"
             type="text"
@@ -26,7 +27,7 @@ export default function SearchParams() {
 
         <BreedDropdown />
 
-        <div>
+        <div className="form-submit-container">
           <button>Submit</button>
         </div>
       </form>

@@ -32,3 +32,25 @@ label {
 .form-title-text {
   margin-right: 5px;
 }
+
+.form-field {
+  width: 100%;
+  border-radius: 2px;
+}
+
+.form-submit-container {
+  text-align: center;
+}
+.form-submit-container button {
+  border: 0;
+  background: white;
+  color: darkblue;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.form-submit-container button:hover {
+  cursor: pointer;
+  background: #5db317;
+  color: white;
+}
