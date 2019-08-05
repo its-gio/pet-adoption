@@ -13,8 +13,8 @@ export default function SearchParams() {
     setBreeds([]);
     setBreed("");
 
-    pet.breeds(animal).then(({ breeds }) => {
-      const breedStrings = breeds.map(({ name }) => name);
+    pet.breeds(animal).then(({ breeds: APIBreeds }) => {
+      const breedStrings = APIBreeds.map(({ name }) => name);
 
       setBreeds(breedStrings);
     }, console.error);
