@@ -54,3 +54,14 @@ label {
   background: #5db317;
   color: white;
 }
+
+/* Results Component */
+.results {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.results--single-pet {
+  text-align: center;
+}
