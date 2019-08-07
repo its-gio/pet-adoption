@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
+import Results from "./Results.jsx";
 import useDropdown from "./useDropdown.jsx";
 
 export default function SearchParams() {
@@ -60,6 +61,8 @@ export default function SearchParams() {
           <button>Submit</button>
         </div>
       </form>
+
+      <Results pets={pets} />
     </div>
   );
 }
