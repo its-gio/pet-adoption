@@ -5,7 +5,7 @@ export default function Results({ pets }) {
   return (
     <div className="results">
       {pets.length === 0 ? (
-        <h1>No Pets Found!</h1>
+        <h2 className="results--not-found">No Pets Found!</h2>
       ) : (
         pets.map(pet => {
           return (
