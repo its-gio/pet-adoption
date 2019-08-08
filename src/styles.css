@@ -1,11 +1,11 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
   background: #222ba5;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
@@ -59,9 +59,36 @@ label {
 .results {
   max-width: 80%;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.results--not-found {
+  margin: 0 auto;
 }
 
 .results--single-pet {
   text-align: center;
+  width: 33.33%;
+  padding: 10px 5px;
+}
+
+@media screen and (min-width: 1200px) {
+  .results--single-pet {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .results--single-pet {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .results--single-pet {
+    width: 100%;
+  }
 }
