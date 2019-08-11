@@ -25,9 +25,20 @@ export default class Details extends Component {
 
   render() {
     if (this.loading) {
-      return <h1>Loading...</h1>;
-    } else {
-      return <div>Loadng complete!</div>;
+      return <h2>Loading...</h2>;
     }
+    const { animal, breed, location, description, name } = this.state;
+
+    return (
+      <div>
+        <h3>{name}</h3>
+        <p>{animal}</p>
+        <p>{breed}</p>
+        <p>{location}</p>
+        <button>Adopt {name}</button>
+
+        <p>{description}</p>
+      </div>
+    );
   }
 }
