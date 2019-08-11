@@ -2,11 +2,8 @@ import React, { Component } from "react";
 import pet from "@frontendmasters/pet";
 
 export default class Details extends Component {
-  constructor(props) {
-    super(props);
+  state = { loading: true };
 
-    this.state = { loading: true };
-  }
   // I'm going to do this once then I'm done (Usefull for ajax requests)
   componentDidMount() {
     pet.animal(this.props.id).then(({ animal }) => {
