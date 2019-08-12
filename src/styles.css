@@ -82,6 +82,19 @@ label {
   padding: 10px 5px;
 }
 
+/* Carousel */
+.single--list {
+  display: flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.single--list__image {
+  width: 10%;
+  margin: 5px;
+}
+
+/* Media Queries */
 @media screen and (min-width: 1200px) {
   .results--single-pet {
     width: 25%;
