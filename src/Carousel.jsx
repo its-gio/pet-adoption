@@ -4,17 +4,20 @@ export default class Carousel extends Component {
   // Needs current and list of available photos
   state = {
     photos: [],
+    photosMinis: [],
     active: 0
   };
 
   static getDerivedStateFromProps({ media }) {
     let photos = ["http://placecorgi.com/600/600"];
+    let photosMinis = ["http://placecorgi.com/600/600"];
 
     if (media) {
       photos = media.map(({ large }) => large);
+      photosMinis = media.map(({ small }) => small);
     }
 
-    return { photos };
+    return { photos, photosMinis };
   }
 
   handleIndexClick = e => {
@@ -25,7 +28,7 @@ export default class Carousel extends Component {
   };
 
   render() {
-    const { photos, active } = this.state;
+    const { photos, photosMinis, active } = this.state;
     const { name } = this.props;
 
     return (
@@ -41,7 +44,7 @@ export default class Carousel extends Component {
         </div>
 
         <div className="single--list">
-          {photos.map((photo, index) => (
+          {photosMinis.map((photo, index) => (
             <img
               src={photo}
               onClick={this.handleIndexClick}
