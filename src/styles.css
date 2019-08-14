@@ -83,15 +83,38 @@ label {
 }
 
 /* Carousel */
+.single--hero-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.single--hero__image {
+  border-radius: 10px;
+  width: 100%;
+}
+
 .single--list {
   display: flex;
   max-width: 100%;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .single--list__image {
-  width: 10%;
-  margin: 5px;
+  max-width: 100px;
+  margin: 3px;
+  border: 2px solid;
+  border-color: transparent;
+}
+
+.active.single--list__image {
+  border-color: white;
+  transition: 500ms border ease-out;
+}
+
+.single--list__image:hover {
+  cursor: pointer;
 }
 
 /* Media Queries */

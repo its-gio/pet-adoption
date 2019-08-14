@@ -30,7 +30,15 @@ export default class Carousel extends Component {
 
     return (
       <div>
-        <img src={photos[active]} alt={name} className="single--hero" />
+        <div className="single--hero">
+          <div className="single--hero-inner">
+            <img
+              src={photos[active]}
+              alt={name}
+              className="single--hero__image"
+            />
+          </div>
+        </div>
 
         <div className="single--list">
           {photos.map((photo, index) => (
