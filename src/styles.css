@@ -82,7 +82,29 @@ label {
   padding: 10px 5px;
 }
 
-/* Carousel */
+/* Details */
+.details {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+}
+
+.details--button {
+  border: 0;
+  background: white;
+  color: darkblue;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.details--button:hover {
+  cursor: pointer;
+  background: #5db317;
+  color: white;
+}
+
+/* Details > Carousel */
 .single--hero-inner {
   max-width: 600px;
   margin: 0 auto;

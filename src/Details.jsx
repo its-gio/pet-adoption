@@ -32,13 +32,15 @@ export default class Details extends Component {
       <div>
         <Carousel media={media} name={name} />
 
-        <h3>{name}</h3>
-        <p>{animal}</p>
-        <p>{breed}</p>
-        <p>{location}</p>
-        <button>Adopt {name}</button>
+        <div className="details">
+          <h3 className="details--heading">{name}</h3>
+          <p className="details--tagline">{animal}</p>
+          <p className="details--tagline">{breed}</p>
+          <p className="details--tagline">{location}</p>
+          <button className="details--button">Adopt {name}</button>
 
-        <p>{description}</p>
+          <p className="details--desc">{description}</p>
+        </div>
       </div>
     );
   }
