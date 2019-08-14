@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 export default function Pet({ name, animal, breed, media, location, id }) {
   let hero = "http://placecorgi.com/300/300";
@@ -12,9 +13,9 @@ export default function Pet({ name, animal, breed, media, location, id }) {
 
   return (
     <div className="results--single-pet">
-      <a href={`/details/${id}`}>
+      <Link to={`/details/${id}`}>
         <img src={hero} alt={name} />
-      </a>
+      </Link>
 
       <div className="results--single-pet__info">
         <h3>{nameCase(name)}</h3>
