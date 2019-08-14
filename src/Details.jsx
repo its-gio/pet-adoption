@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel.jsx";
 
@@ -15,7 +16,7 @@ export default class Details extends Component {
         description: animal.description,
         media: animal.photos,
         breed: animal.breeds.primary,
-
+        url: animal.url,
         loading: false
       });
     }, console.error);
@@ -26,7 +27,15 @@ export default class Details extends Component {
       return <h2>Loading...</h2>;
     }
 
-    const { animal, breed, location, description, name, media } = this.state;
+    const {
+      animal,
+      breed,
+      location,
+      description,
+      name,
+      media,
+      url
+    } = this.state;
 
     return (
       <div>
@@ -37,7 +46,9 @@ export default class Details extends Component {
           <p className="details--tagline">{animal}</p>
           <p className="details--tagline">{breed}</p>
           <p className="details--tagline">{location}</p>
-          <button className="details--button">Adopt {name}</button>
+          <button className="details--button" href={url} target="_blank">
+            Adopt {name}
+          </button>
 
           <p className="details--desc">{description}</p>
         </div>
